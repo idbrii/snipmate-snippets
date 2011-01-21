@@ -1,10 +1,3 @@
-## Access Modifiers
-snippet po
-	protected
-snippet pu
-	public
-snippet pr
-	private
 ##
 ## Annotations
 snippet before
@@ -23,20 +16,6 @@ snippet oo
 	@OneToOne
 	${1}
 ##
-## Basic Java packages and import
-snippet im
-	import
-snippet j.b
-	java.beans.
-snippet j.i
-	java.io.
-snippet j.m
-	java.math.
-snippet j.n
-	java.net.
-snippet j.u
-	java.util.
-##
 ## Class
 snippet cl
 	class ${1:`Filename("", "untitled")`} ${2}
@@ -44,12 +23,6 @@ snippet in
 	interface ${1:`Filename("", "untitled")`} ${2:extends Parent}${3}
 snippet tc
 	public class ${1:`Filename()`} extends ${2:TestCase}
-##
-## Class Enhancements
-snippet ext
-	extends 
-snippet imp
-	implements
 ##
 ## Comments
 snippet /*
@@ -70,8 +43,6 @@ snippet case
 snippet def
 	default:
 		${2}
-snippet el
-	else
 snippet elif
 	else if (${1}) ${2}
 snippet if
@@ -89,16 +60,6 @@ snippet m
 snippet v
 	${1:String} ${2:var}${3: = null}${4};${5}
 ##
-## Enhancements to Methods, variables, classes, etc.
-snippet ab
-	abstract
-snippet fi
-	final
-snippet st
-	static
-snippet sy
-	synchronized
-##
 ## Error Methods
 snippet err
 	System.err.print("${1:Message}");
@@ -112,10 +73,6 @@ snippet as
 	assert ${1:test} : "${2:Failure message}";${3}
 snippet ca
 	catch(${1:Exception} ${2:e}) ${3}
-snippet thr
-	throw
-snippet ths
-	throws
 snippet try
 	try {
 		${3}
