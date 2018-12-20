@@ -30,7 +30,7 @@ Contents
 Snippet engines supporting vim-uniformsnippets
 ----------------------------------------
 
-vim-uniformsnippets targets [github.com/SirVer/ultisnips][7].
+vim-uniformsnippets provides snippets for [github.com/SirVer/ultisnips][1].
 
 Vendor Snippets
 ---------------
@@ -60,28 +60,28 @@ If you still have trouble getting this to work, please create a GitHub issue.
 Things to consider when contributing
 ------------------------------------
 
-Don't add *useless* placeholder default texts like:
+Avoid placeholder text that doesn't add value. Use `${VISUAL}` for any trigger
+that might wrap other code.
 
+Bad:
 ```
 if (${1:condition}){
   ${0:some code here}
 }
 ```
-instead use:
 
+Good:
 ```
-if (${1}){
-  ${0:${VISUAL}}
+if (${1}) {
+  ${2:${VISUAL}}
 }
 ```
 
-Exception: Functions which are used less often, such as Vim's `matchall()`, `matchstr()`
-functions which case hints may be helpful to remember order. In the VimL case
-get vim-dev plugin which has function completion
+Function arguments and other hints make for good placeholder text (such as
+Vim's `matchall()`, `matchstr()` functions which case hints may be helpful to
+remember order).
 
-Thus for conditions (while, if ..) and block bodies just use ${N}.
-
-When the snippet can be used to wrap existing code leverage `${VISUAL}`
+For conditions (while, if ..) and block bodies just use ${N}.
 
 No snippets for oneliners (if else endif on one line).
 
@@ -92,25 +92,20 @@ Open questions:
 Currently all snippets from UltiSnips have been put into UltiSnips - some work
 on merging should be done (dropping duplicates etc). Also see engines section above.
 
+For new snippets, also try contributing to vim-snippets!
+
 Related repositories
 --------------------
 
 We also encourage people to maintain sets of snippets for particular use cases
 so that all users can benefit from them.  People can list their snippet repositories here:
 
+* https://github.com/honza/vim-snippets (original snippet repository)
 * https://github.com/rbonvall/snipmate-snippets-bib (snippets for BibTeX files)
 * https://github.com/sudar/vim-arduino-snippets (snippets for Arduino files)
 * https://github.com/zedr/zope-snipmate-bundle.git (snippets for Python, TAL and ZCML)
 * https://github.com/bonsaiben/bootstrap-snippets (snippets for Twitter Bootstrap markup, in HTML and Haml)
 * https://github.com/sniphpets (advanced snippets for PHP, Symfony 2/3, Doctrine and etc.)
-
-Installation using VAM: https://github.com/MarcWeber/vim-addon-manager
-
-Future ideas and examples
--------------------------
-
-[overview snippet engines](http://vim-wiki.mawercer.de/wiki/topic/text-snippets-skeletons-templates.html)
-If you have ideas you can add them to that list of "snippet engine features by example".
 
 Versions / dialects / ..
 ========================
@@ -137,9 +132,4 @@ License
 Just as the original snipMate plugin, all the snippets are licensed under the
 terms of the MIT license.
 
-[1]: http://github.com/garbas/vim-snipmate
-[2]: http://github.com/msanders
-[3]: http://github.com/garbas
-[7]: http://github.com/SirVer/ultisnips
-[8]: http://vim-wiki.mawercer.de/wiki/topic/vim%20plugin%20managment.html
-[9]: https://github.com/MarcWeber/vim-addon-manager
+[1]: http://github.com/SirVer/ultisnips
