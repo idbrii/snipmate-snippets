@@ -6,7 +6,7 @@ Consistent UltiSnip Snippets
 This is a fork of honza/vim-snippets that focuses making snippet triggers
 uniform across all languages.
 
-**Current priority is making snippets consistent and not
+**Current priority is making snippets consistent which will break 
 backwards-compatibility.**
 
 For snippets to be useful when switching languages, we should have the same
@@ -21,6 +21,10 @@ wh  : while (cond) ...
 sw  : switch (var) ...
 fun : function/method
 ```
+
+While this repo is young and has no other contributors, I'm rebasing it on top
+of honza/vim-snippets.
+
 
 Contents
 --------
