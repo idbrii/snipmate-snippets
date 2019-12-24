@@ -2,23 +2,32 @@
 
 import string, vim, re
 
+def _to_imprecise_pattern(text):
+    if re.match("\w", text):
+        return text + "\w*"
+    else:
+        return text
+
 def complete(tab, opts):
     """
-    get options that match with tab
+    get options that match with tab.
+
+    Returns a list of matching options so user can use Ctrl-n to select one of
+    them.
 
     :param tab: query string
     :param opts: list that needs to be completed
 
-    :return: a string that match with tab
+    :return: a string that matches with tab
     """
-    el = [x for x in tab]
-    pat = "".join(list(map(lambda x: x + "\w*" if re.match("\w", x) else x,
-                           el)))
+    chars = [x for x in tab]
+    pat = "".join([_to_imprecise_pattern(x) for x in chars])
     try:
         opts = [x for x in opts if re.search(pat, x, re.IGNORECASE)]
     except:
         opts = [x for x in opts if x.startswith(tab)]
-    if not len(opts) or str.lower(tab) in list(map(str.lower, opts)):
+    none_or_exact_match = not opts or str.lower(tab) in [str.lower(o) for o in opts]
+    if none_or_exact_match:
         return ""
     cads = "|".join(opts[:5])
     if len(opts) > 5: cads += "|..."
