@@ -13,16 +13,20 @@ For snippets to be useful when switching languages, we should have the same
 triggers for them:
 
 ```
-if : if without else
-ife: if $1 else $2
-eif : else if ($1) { .. }
-el  : else ..
-wh  : while (cond) ...
-sw  : switch (var) ...
-fun : function/method
+if:   if without else
+ife:  if $1 else $2
+else: else ..
+wh:   while (cond) ...
+sw:   switch (var) ...
+fun:  function/method
 ```
 
-While this repo is young and has no other contributors, I'm rebasing it on top
+We generally don't need elseif because it's just
+`else if<Tab>`. But for languages that use a
+single token for elseif, we should have an elseif
+snippet.
+
+While this repo is still young and has no other contributors, I'm rebasing it on top
 of honza/vim-snippets.
 
 
